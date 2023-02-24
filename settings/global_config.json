@@ -1,0 +1,36 @@
+{
+    "sms_account": "",
+    "standalone_stages": [],
+    "clean_ws": false,
+    "coverity_credentials": "",
+    "blackduck_credentials": "",
+    "post_scripts": [
+      "echo post-haha"
+    ],
+    "parallel_stages": [],
+    "mail_enabled": false,
+    "filename": "global_config.groovy",
+    "nodes": [],
+    "parallel_parameters": {},
+    "sms_credentials": "",
+    "stages": [
+      "source",
+      "buildwithcoverity",
+      "jira"
+    ],
+    "//stages": [
+      "composition",
+      "jira"
+    ],
+    "post_scripts_type": [
+      "inline"
+    ],
+    "gerrit_credentials": "",
+    "preserve_source": false,
+    "mail_body": "",
+    "post_scripts_condition": [
+      "always"
+    ],
+    "mail_recipient": "reycheng@realtek.com",
+    "dummy_parallel_parameters": "[]"
+  }
