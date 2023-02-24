@@ -1,0 +1,18 @@
+def utils
+def pf
+
+pipeline {
+    // don't use 'agent any'
+    // 'agent none' allows the job to continue on the same node with the same files
+    agent none
+	options { timestamps () }
+    stages {
+		stage("PF-init") {
+			steps {
+				script {
+					utils = load "utils.groovy"
+					pf = load("rtk_stages.groovy")
+					pf.init()
+				}
+			}
+		}
