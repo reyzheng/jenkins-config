@@ -1,0 +1,10 @@
+{
+    post_scripts_condition: ["always"],
+    post_scripts_type: ["file"],
+    post_scripts: ["post.sh"],
+    mail_enabled: false,
+    mail_conditions: ["always"],
+    mail_subject: "",
+    mail_body: "",
+    mail_recipient: ""
+}
