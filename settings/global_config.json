@@ -5,7 +5,7 @@
     "coverity_credentials": "",
     "blackduck_credentials": "",
     "post_scripts": [
-      "echo post-haha"
+      "post.sh"
     ],
     "parallel_stages": [],
     "mail_enabled": false,
@@ -22,7 +22,7 @@
       "jira"
     ],
     "post_scripts_type": [
-      "inline"
+      "file"
     ],
     "gerrit_credentials": "",
     "preserve_source": false,
