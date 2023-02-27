@@ -15,8 +15,7 @@
     "sms_credentials": "",
     "stages": [
       "source",
-      "buildwithcoverity",
-      "jira"
+      "script"
     ],
     "//stages": [
       "composition",
