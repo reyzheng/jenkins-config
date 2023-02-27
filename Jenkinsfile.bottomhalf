@@ -1,2 +1,32 @@
     }
+    post {
+        always {
+            script {
+                // enable logParser if scripts/logParserRule existed
+                logParser failBuildOnError: true, showGraphs:true, unstableOnWarning: true, useProjectRule: true, projectRulePath: './scripts/logParserRule'
+                pipelineAsCode.postStage("always")
+                pipelineAsCode.emailNotification()
+            }
+        }
+        success {
+            script {
+                pipelineAsCode.postStage("success")
+			}        
+        }
+        failure {
+            script {
+                pipelineAsCode.postStage("failure")
+            }            
+        }
+        unstable {
+            script {
+                pipelineAsCode.postStage("unstable")
+            }            
+        }
+        changed {
+            script {
+                pipelineAsCode.postStage("changed")
+            }            
+        }
+    }
 }
