@@ -1,0 +1,7 @@
+{
+    display_name: "",
+    enable: true,
+    types: ["inline"],
+    contents: ["pwd && ls -al"],
+    sshcredentials: ""
+}
