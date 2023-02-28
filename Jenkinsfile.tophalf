@@ -23,6 +23,9 @@ pipeline {
 						pwd && ls -al
 					"""
 					scmVars = checkout scm
+					print scmVars.GIT_URL
+					print scmVars.GIT_COMMIT
+					print scmVars.GIT_BRANCH
 					sh """
 						pwd && ls -al
 					"""
