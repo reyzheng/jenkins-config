@@ -16,3 +16,16 @@ pipeline {
 				}
 			}
 		}
+		stage("default-scm") {
+			stesp {
+				script {
+					sh """
+						pwd && ls -al
+					"""
+					scmVars = checkout scm
+					sh """
+						pwd && ls -al
+					"""
+				}
+			}
+		}
