@@ -1,4 +1,19 @@
 node {
     // scripted pipeline to read config and generate dagger.cue, Jenkinsfile.cue
-    load 'Jenkinsfile.cue'
+    dir('.pf-bringup') {
+        deleteDir()
+        if (isUnix() == true) {
+            sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git ."
+        }
+        else {
+            bat "set GIT_SSL_NO_VERIFY=true && git clone https://github.com/reyzheng/jenkins-pipeline.git ."
+        }
+        sh """
+            echo '@Jenkinsfile.dagger'
+            pwd && ls -al
+        """
+        //mb = load("hera.groovy")
+    }
+    //mb.start(URL, BRANCH, CREDENTIALS)
+    //load 'Jenkinsfile.cue'
 }
