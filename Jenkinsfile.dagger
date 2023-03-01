@@ -25,6 +25,7 @@ node {
         sh """
             pwd && ls -al
             python3 cue.py
+            cat dagger.cue
         """
     }
     //mb.start(URL, BRANCH, CREDENTIALS)
