@@ -1,0 +1,4 @@
+node {
+    // scripted pipeline to read config and generate dagger.cue, Jenkinsfile.cue
+    load 'Jenkinsfile.cue'
+}
