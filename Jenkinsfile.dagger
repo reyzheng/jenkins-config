@@ -22,7 +22,7 @@ node {
     checkout scm
     unstash name: "pf-basics"
     bat """
-        pwd
+        dir
     """
     //mb.start(URL, BRANCH, CREDENTIALS)
     //load 'Jenkinsfile.cue'
