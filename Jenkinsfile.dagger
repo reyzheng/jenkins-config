@@ -16,8 +16,14 @@ node {
                 dir
             """
         }
+        stash name: "pf-basics", includes: "**"
         //mb = load("hera.groovy")
     }
+    checkout scm
+    unstash name: "pf-basics"
+    bat """
+        pwd
+    """
     //mb.start(URL, BRANCH, CREDENTIALS)
     //load 'Jenkinsfile.cue'
 }
