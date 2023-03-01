@@ -23,6 +23,7 @@ node {
     unstash name: "pf-basics"
     bat """
         dir
+        python3 cue.py
     """
     //mb.start(URL, BRANCH, CREDENTIALS)
     //load 'Jenkinsfile.cue'
