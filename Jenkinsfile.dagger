@@ -3,15 +3,19 @@ node {
     dir('.pf-bringup') {
         deleteDir()
         if (isUnix() == true) {
-            sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git ."
+            sh """
+                GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git .
+                echo '@Jenkinsfile.dagger'
+                pwd && ls -al
+            """
         }
         else {
-            bat "set GIT_SSL_NO_VERIFY=true && git clone https://github.com/reyzheng/jenkins-pipeline.git ."
+            bat """
+                set GIT_SSL_NO_VERIFY=true && git clone https://github.com/reyzheng/jenkins-pipeline.git .
+                echo '@Jenkinsfile.dagger'
+                dir
+            """
         }
-        sh """
-            echo '@Jenkinsfile.dagger'
-            pwd && ls -al
-        """
         //mb = load("hera.groovy")
     }
     //mb.start(URL, BRANCH, CREDENTIALS)
