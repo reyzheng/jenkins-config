@@ -3,10 +3,6 @@ node {
     // Only Jenkinsfile.appetizer available now, checkout pipeline configuration manually here
     // scripted pipeline differs from declarative pipeline which checkouts that by default
     checkout scm
-    def jsonObj
-    dir('settings') {
-        jsonObj = readJSON file: 'global_config.json'
-    }
     dir(".pf-framework") {
         deleteDir()
         if (isUnix() == true) {
@@ -18,6 +14,10 @@ node {
         stash name: "pf-framework", includes: "**"
     }
     unstash name: "pf-framework"
+    def jsonObj
+    dir('settings') {
+        jsonObj = readJSON file: 'global_config.json'
+    }
     def pipelineAsCode = load('rtk_stages.groovy')
     pipelineAsCode.format(jsonObj)
     load 'Jenkinsfile.restartable'
