@@ -25,6 +25,7 @@ node {
         pwd && ls -al
         python3 cue.py
         cat dagger.cue
+        dagger-cue project init
         dagger-cue do hello --log-format=plain
     """
     //mb.start(URL, BRANCH, CREDENTIALS)
