@@ -28,6 +28,7 @@ node {
         dagger-cue project init
         dagger-cue project update
         dagger-cue do hello --log-format=plain
+        dagger-cue do hello2 --log-format=plain
     """
     //mb.start(URL, BRANCH, CREDENTIALS)
     //load 'Jenkinsfile.cue'
