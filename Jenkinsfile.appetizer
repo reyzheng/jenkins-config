@@ -22,42 +22,4 @@ node {
     def pipelineAsCode = load('rtk_stages.groovy')
     pipelineAsCode.format(jsonObj)
     load 'Jenkinsfile.restartable'
-
-    /*
-    // change to nodes user specified
-    def jsonObj
-    dir('settings') {
-        jsonObj = readJSON file: 'global_config.json'
-    }
-    def nodeName = ""
-    if (jsonObj.nodes.size() > 0 && jsonObj.nodes[0] != "") {
-        nodeName = jsonObj.nodes[0]
-    }
-    print "Bring to node: ${nodeName}"
-    
-    node(nodeName) {
-        // checkout pipeline configuration again
-        scmVars = checkout scm
-        // checkout pipeline framework
-        dir('devsecops') {
-            deleteDir()
-            if (isUnix() == true) {
-                sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
-            }
-            else {
-                bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
-            }
-        }
-        if (isUnix() == true) {
-            sh 'cp -a devsecops/* ./'
-        }
-        else {
-            bat "xcopy devsecops\\* .\\ /E /H /Y"
-        }
-
-        def pipelineAsCode = load('rtk_stages.groovy')
-        pipelineAsCode.format(jsonObj.stages)
-        load 'Jenkinsfile.restartable'
-    }
-    */
-} 
+}
