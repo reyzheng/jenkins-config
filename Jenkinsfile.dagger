@@ -19,15 +19,13 @@ node {
         stash name: "pf-basics", includes: "**"
         //mb = load("hera.groovy")
     }
-    node {
-        checkout scm
-        unstash name: "pf-basics"
-        sh """
-            pwd && ls -al
-            python3 cue.py
-            cat dagger.cue
-        """
-    }
+    checkout scm
+    unstash name: "pf-basics"
+    sh """
+        pwd && ls -al
+        python3 cue.py
+        cat dagger.cue
+    """
     //mb.start(URL, BRANCH, CREDENTIALS)
     //load 'Jenkinsfile.cue'
 }
