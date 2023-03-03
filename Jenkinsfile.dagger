@@ -19,7 +19,7 @@ node {
         stash name: "pf-basics", includes: "**"
         //mb = load("hera.groovy")
     }
-    node('linux') {
+    node {
         checkout scm
         unstash name: "pf-basics"
         sh """
