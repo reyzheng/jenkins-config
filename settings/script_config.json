@@ -1,5 +1,5 @@
 {
-    "display_name": "",
+    "display_name": "SCRIPT",
     "enable": true,
     "types": ["inline"],
     "contents": ["pwd && ls -al"],
