@@ -12,6 +12,9 @@ pipeline {
 		stage("PF-init") {
 			steps {
 				script {
+					sh """
+						pwd && ls -al
+					"""
 					utils = load "utils.groovy"
 					pf = load("rtk_stages.groovy")
 					pf.init()
