@@ -5,7 +5,7 @@
   ],
   "filename": "source_config.groovy",
   "scm_branchs": [
-    "fork"
+    "kernel-2.2"
   ],
   "scm_repo_manifest_depths": [
     1
@@ -17,7 +17,7 @@
     "git"
   ],
   "scm_urls": [
-    "https://github.com/reyzheng/test.git"
+    "https://github.com/reyzheng/multi-branch.git"
   ],
   "scm_repo_manifest_currentbranchs": [
     true
