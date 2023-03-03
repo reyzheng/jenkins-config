@@ -12,6 +12,17 @@ pipeline {
 		stage("PF-init") {
 			steps {
 				script {
+					dir(".pf-framework") {
+						deleteDir()
+						if (isUnix() == true) {
+							sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+						}
+						else {
+							bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+						}
+						stash name: "pf-framework", includes: "**"
+					}
+					unstash name: "pf-framework"
 					utils = load "utils.groovy"
 					pf = load("rtk_stages.groovy")
 					pf.init()
