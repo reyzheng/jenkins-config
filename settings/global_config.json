@@ -1,4 +1,5 @@
 {
+    "dagger": true,
     "sms_account": "",
     "standalone_stages": [],
     "clean_ws": false,
@@ -14,6 +15,7 @@
     "parallel_parameters": {},
     "sms_credentials": "",
     "stages": [
+      "source",
       "script"
     ],
     "//stages": [
