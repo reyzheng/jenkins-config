@@ -4,7 +4,9 @@ def pf
 pipeline {
     // don't use 'agent any'
     // 'agent none' allows the job to continue on the same node with the same files
-    agent none
+    agent {
+        label nodeLabel
+    }
     options { timestamps () }
     stages {
 		stage("PF-init") {
@@ -16,6 +18,7 @@ pipeline {
 				}
 			}
 		}
+		/*
 		stage("default-scm") {
 			steps {
 				script {
@@ -32,3 +35,4 @@ pipeline {
 				}
 			}
 		}
+		*/
