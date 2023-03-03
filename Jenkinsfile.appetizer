@@ -2,22 +2,22 @@
 node {
     // Only Jenkinsfile.appetizer available now, checkout pipeline configuration manually here
     // scripted pipeline differs from declarative pipeline which checkouts that by default
+    checkout scm
     def jsonObj
-    dir(".pf-settings") {
-        //scmVars = checkout scm
-        checkout scm
-        stash name: "pf-settings", includes: "**"
-    }
-    unstash name: "pf-settings"
     dir('settings') {
         jsonObj = readJSON file: 'global_config.json'
     }
-    if (isUnix() == true) {
-        sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+    dir(".pf-framework") {
+        deleteDir()
+        if (isUnix() == true) {
+            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+        }
+        else {
+            bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+        }
+        stash name: "pf-framework", includes: "**"
     }
-    else {
-        bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
-    }
+    unstash name: "pf-framework"
     def pipelineAsCode = load('rtk_stages.groovy')
     pipelineAsCode.format(jsonObj)
     load 'Jenkinsfile.restartable'
