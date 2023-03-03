@@ -1,67 +1,42 @@
-pipeline {
-    agent any
-    stages {
-        // pre-requisite stage
-        stage("Init") {
-            steps {
-                script {
-                    dir('devsecops') {
-                        deleteDir()
-                        if (isUnix() == true) {
-                            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.sdlc.rd.realtek.com/gerrit/sdlc/jenkins-pipeline -b develop ."
-                        }
-                        else {
-                            bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.sdlc.rd.realtek.com/gerrit/sdlc/jenkins-pipeline -b develop ."
-                        }
-                    }
-                    if (isUnix() == true) {
-                        sh 'cp -a devsecops/* ./'
-                    }
-                    else {
-                        bat "xcopy devsecops\\* .\\ /E /H /Y"
-                    }
-                    pipelineAsCode = load("rtk_stages.groovy")
-                    pipelineAsCode.init()
-                }
-            }
-        }
-        stage("Start") {
-            steps {
-                script {
-	                pipelineAsCode.start()
-                }
-            }
-        }
-    }
+// put this file in the branches of the application/software repository
+node {
+    // checkout pipeline configuration
+    // need to manually checkout in scripted pipeline (differs from declarative pipeline which checkouts by default)
+    scmVars = checkout scm
 
-    post {
-        always {
-            script {
-                // enable logParser if scripts/logParserRule existed
-                logParser failBuildOnError: true, showGraphs:true, unstableOnWarning: true, useProjectRule: true, projectRulePath: './scripts/logParserRule'
-                pipelineAsCode.postStage("always")
-                pipelineAsCode.emailNotification()
+    // change to nodes user specified
+    def jsonObj
+    dir('settings') {
+        jsonObj = readJSON file: 'global_config.json'
+    }
+    def nodeName = ""
+    if (jsonObj.nodes.size() > 0 && jsonObj.nodes[0] != "") {
+        nodeName = jsonObj.nodes[0]
+    }
+    print "Bring to node: ${nodeName}"
+
+    node(nodeName) {
+        // checkout pipeline configuration again
+        scmVars = checkout scm
+        // checkout pipeline framework
+        dir('devsecops') {
+            deleteDir()
+            if (isUnix() == true) {
+                sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+            }
+            else {
+                bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
             }
         }
-        success {
-            script {
-                pipelineAsCode.postStage("success")
-			}        
+        if (isUnix() == true) {
+            sh 'cp -a devsecops/* ./'
         }
-        failure {
-            script {
-                pipelineAsCode.postStage("failure")
-            }            
+        else {
+            bat "xcopy devsecops\\* .\\ /E /H /Y"
         }
-        unstable {
-            script {
-                pipelineAsCode.postStage("unstable")
-            }            
-        }
-        changed {
-            script {
-                pipelineAsCode.postStage("changed")
-            }            
-        }
+
+        def pipelineAsCode = load('rtk_stages.groovy')
+        pipelineAsCode.format(jsonObj.stages)
+        load 'Jenkinsfile.restartable'
     }
-}
+} 
