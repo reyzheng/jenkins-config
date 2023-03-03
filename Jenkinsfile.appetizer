@@ -2,6 +2,11 @@
 node {
     // checkout pipeline configuration
     // need to manually checkout in scripted pipeline (differs from declarative pipeline which checkouts by default)
+    sh """
+        echo 123
+        pwd && ls -al
+        echo 456
+    """
     scmVars = checkout scm
 
     // change to nodes user specified
