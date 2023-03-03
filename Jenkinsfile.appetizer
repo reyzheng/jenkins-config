@@ -17,7 +17,6 @@ node {
     pipelineAsCode.format(jsonObj.stages)
     load 'Jenkinsfile.restartable'
 
-
     /*
     // change to nodes user specified
     def jsonObj
