@@ -6,12 +6,17 @@ pipeline {
             steps {
                 script {
                     dir('devsecops') {
+                        // issues of git plugin
+                        // 1. erased directory
+                        // 2. https ssl problem
+                        // and checkout to devsecops is necessary
+                        // to avoid .git already existed problem
                         deleteDir()
                         if (isUnix() == true) {
-                            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.sdlc.rd.realtek.com/gerrit/sdlc/jenkins-pipeline -b develop ."
+                            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
                         }
                         else {
-                            bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.sdlc.rd.realtek.com/gerrit/sdlc/jenkins-pipeline -b develop ."
+                            bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b stable ."
                         }
                     }
                     if (isUnix() == true) {
@@ -34,6 +39,7 @@ pipeline {
         }
     }
 
+	
     post {
         always {
             script {

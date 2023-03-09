@@ -11,22 +11,22 @@
         success {
             script {
                 pf.postStage("success")
-	    }        
+	        }
         }
         failure {
             script {
                 pf.postStage("failure")
-            }            
+            }
         }
         unstable {
             script {
                 pf.postStage("unstable")
-            }            
+            }
         }
         changed {
             script {
                 pf.postStage("changed")
-            }            
+            }
         }
     }
 }

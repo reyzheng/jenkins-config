@@ -12,11 +12,20 @@ pipeline {
 		stage("PF-init") {
 			steps {
 				script {
+					sh """
+						cp -a ../test-pipeline-restartable/settings .
+						cp -a ../test-pipeline-restartable/scripts .
+						cp -a ../test-pipeline-restartable/groovys .
+						cp -a ../test-pipeline-restartable/pipeline_scripts .
+						cp -a ../test-pipeline-restartable/rtk_coverity .
+						cp -a ../test-pipeline-restartable/rtk_stages.groovy .
+						cp -a ../test-pipeline-restartable/utils.groovy .
+					"""
+					/*
 					dir(".pf-framework") {
 						deleteDir()
 						if (isUnix() == true) {
-							//sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
-							sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b main ."
+							sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
 						}
 						else {
 							bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
@@ -24,27 +33,10 @@ pipeline {
 						stash name: "pf-framework", includes: "**"
 					}
 					unstash name: "pf-framework"
+					*/
 					utils = load "utils.groovy"
 					pf = load("rtk_stages.groovy")
 					pf.init()
 				}
 			}
 		}
-		/*
-		stage("default-scm") {
-			steps {
-				script {
-					sh """
-						pwd && ls -al
-					"""
-					scmVars = checkout scm
-					print scmVars.GIT_URL
-					print scmVars.GIT_COMMIT
-					print scmVars.GIT_BRANCH
-					sh """
-						pwd && ls -al
-					"""
-				}
-			}
-		}
-		*/
