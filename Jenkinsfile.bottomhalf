@@ -3,11 +3,14 @@ stage('DAGGER') {
         script {
             sh """
 	        mv source/dagger.cue .
-	    	echo 'current dir.'
+	    	echo 'dir. before dagger'
 		pwd && ls -al
+	    	echo 'start dagger'
 		dagger-cue project init
 		dagger-cue project update
 		dagger-cue do build --log-format=plain
+	    	echo 'dir. after dagger'
+		pwd && ls -al
 	    """
         }
     }
