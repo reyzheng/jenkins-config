@@ -2,9 +2,10 @@ stage('DAGGER') {
     steps {
         script {
             sh """
-	        echo dagger
+	    	echo 'current dir.'
 		pwd && ls -al
 		dagger-cue project init
+		dagger-cur project update
 	    """
         }
     }
