@@ -2,6 +2,7 @@ stage('DAGGER') {
     steps {
         script {
             sh """
+	        mv source/dagger.cue .
 	    	echo 'current dir.'
 		pwd && ls -al
 		dagger-cue project init
