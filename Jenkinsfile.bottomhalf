@@ -3,6 +3,7 @@ stage('DAGGER') {
         script {
             sh """
 	        echo dagger
+		pwd && ls -al
 	    """
         }
     }
