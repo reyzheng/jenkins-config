@@ -4,6 +4,7 @@ stage('DAGGER') {
             sh """
 	        echo dagger
 		pwd && ls -al
+		dagger-cue project init
 	    """
         }
     }
