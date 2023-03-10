@@ -5,7 +5,7 @@ stage('DAGGER') {
 	    	echo 'current dir.'
 		pwd && ls -al
 		dagger-cue project init
-		dagger-cur project update
+		dagger-cue project update
 	    """
         }
     }
