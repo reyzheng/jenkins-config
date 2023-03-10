@@ -6,6 +6,7 @@ stage('DAGGER') {
 		pwd && ls -al
 		dagger-cue project init
 		dagger-cue project update
+		dagger-cue do build --log-format=plain
 	    """
         }
     }
