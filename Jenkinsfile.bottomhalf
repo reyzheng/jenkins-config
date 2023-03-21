@@ -1,4 +1,4 @@
-stage('DAGGER') {
+stage('DAGGER-coverity') {
     steps {
         script {
             sh """
