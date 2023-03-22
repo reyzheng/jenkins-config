@@ -14,13 +14,13 @@
     "nodes": [],
     "parallel_parameters": {},
     "sms_credentials": "",
-    "stages": [
+    "//stages": [
       "source",
       "script"
     ],
-    "//stages": [
+    "stages": [
       "composition",
-      "jira"
+      "script"
     ],
     "post_scripts_type": [
       "file"
