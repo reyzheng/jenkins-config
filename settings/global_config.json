@@ -1,5 +1,5 @@
 {
-    "dagger": true,
+    "dagger": false,
     "sms_account": "",
     "standalone_stages": [],
     "clean_ws": true,
