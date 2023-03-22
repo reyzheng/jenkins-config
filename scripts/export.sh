@@ -1,0 +1,2 @@
+export VAR0=$RANDOM
+export PIPELINEGLOBAL_VAR
