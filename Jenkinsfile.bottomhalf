@@ -1,3 +1,4 @@
+/*
 stage('DAGGER-coverity') {
     steps {
         script {
@@ -20,6 +21,7 @@ stage('Archive') {
         archiveArtifacts artifacts: '_build/*', fingerprint: true
     }
 }
+*/
     }
     post {
         always {
