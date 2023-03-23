@@ -5,8 +5,10 @@ pipeline {
     // don't use 'agent any'
     // 'agent none' allows the job to continue on the same node with the same files
     agent {
-        label nodeLabel
-	customWorkspace nodeWS
+    	node {
+            label nodeLabel
+	    customWorkspace nodeWS
+	}
     }
     options { timestamps () }
     stages {
