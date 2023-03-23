@@ -21,7 +21,7 @@ pipeline {
 		    dir(".pf-framework") {
 		        sh """
 			    echo 'debug WS'
-			    echo nodeWS
+			    echo $nodeWS
 			    pwd && ls -al
 			"""
 			deleteDir()
