@@ -5,10 +5,10 @@ pipeline {
     // don't use 'agent any'
     // 'agent none' allows the job to continue on the same node with the same files
     agent {
-    	node {
-            label nodeLabel
-	    customWorkspace nodeWS
-	}
+        label nodeLabel
+    }
+    parameters {
+        string(name: 'JENKINS_WORKSPACE', defaultValue: nodeWS, description: 'Jenkins WORKSPACE')
     }
     options { timestamps () }
     stages {
@@ -29,10 +29,10 @@ pipeline {
 			}
 			stash name: "pf-framework", includes: "**"
 		    }
-					unstash name: "pf-framework"
-					utils = load "utils.groovy"
-					pf = load("rtk_stages.groovy")
-					pf.init()
+		    unstash name: "pf-framework"
+		    utils = load "utils.groovy"
+		    pf = load("rtk_stages.groovy")
+		    pf.init()
                 }
             }
         }
