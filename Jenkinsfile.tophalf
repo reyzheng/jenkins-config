@@ -6,6 +6,8 @@ pipeline {
     // 'agent none' allows the job to continue on the same node with the same files
     agent {
         label nodeLabel
+	// tips: do not add customworkspace here
+	// error may occurr if agent moved to windows
     }
     options { timestamps () }
     stages {
@@ -13,10 +15,6 @@ pipeline {
             steps {
                 script {
 		    dir(".pf-framework") {
-		        sh """
-			    echo 'debug WS'
-			    pwd && ls -al
-			"""
 			deleteDir()
 			if (isUnix() == true) {
 			    //sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
