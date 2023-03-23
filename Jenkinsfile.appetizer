@@ -15,10 +15,6 @@ node {
         stash name: "pf-framework", includes: "**"
     }
     unstash name: "pf-framework"
-    def jsonObj
-    dir('settings') {
-        jsonObj = readJSON file: 'global_config.json'
-    }
     def pipelineAsCode = load('rtk_stages.groovy')
     pipelineAsCode.format(jsonObj)
     load 'Jenkinsfile.restartable'
