@@ -10,9 +10,6 @@ pipeline {
 	    customWorkspace nodeWS
 	}
     }
-    parameters {
-        string(name: 'JENKINS_WORKSPACE', defaultValue: nodeWS, description: 'Jenkins WORKSPACE')
-    }
     options { timestamps () }
     stages {
         stage("PF-init") {
