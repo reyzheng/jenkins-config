@@ -7,7 +7,7 @@ pipeline {
     agent {
     	node {
             label nodeLabel
-	    customWorkspace nodeWS
+	    customWorkspace '/tmp/aaa'
 	}
     }
     options { timestamps () }
@@ -18,7 +18,6 @@ pipeline {
 		    dir(".pf-framework") {
 		        sh """
 			    echo 'debug WS'
-			    echo $nodeWS
 			    pwd && ls -al
 			"""
 			deleteDir()
