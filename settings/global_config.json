@@ -14,11 +14,11 @@
     "nodes": [],
     "parallel_parameters": {},
     "sms_credentials": "",
-    "//stages": [
-      "source",
-      "script"
-    ],
     "stages": [
+      "source",
+      "buildwithcoverity"
+    ],
+    "//stages": [
       "composition",
       "script"
     ],
