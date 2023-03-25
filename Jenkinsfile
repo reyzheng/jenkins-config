@@ -13,7 +13,7 @@ pipeline {
                         // to avoid .git already existed problem
                         deleteDir()
                         if (isUnix() == true) {
-                            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+                            sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b develop ."
                         }
                         else {
                             bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b stable ."
