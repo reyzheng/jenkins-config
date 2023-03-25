@@ -3,7 +3,7 @@
     "enable": true,
     "sshcredentials": "",
     "types": ["file"],
-    "contents": ["build.sh"],
+    "contents": ["build.bat"],
     "expressions": [],
     "buildmapping": "onetoone",
     "coverity_scan_enabled": true,
