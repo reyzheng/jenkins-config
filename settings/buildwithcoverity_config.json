@@ -15,7 +15,7 @@
     "coverity_analyze_rtkonly": false,
     "coverity_host": "172.21.15.146",
     "coverity_port": "8080",
-    "coverity_auth_key_credential": "",
+    "coverity_auth_key_credential": "coverity_key",
     "coverity_scan_path": "",
     "coverity_scan_toolbox": "",
     "coverity_xml": "coverity_idir/coverity.xml",
