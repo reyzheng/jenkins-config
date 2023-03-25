@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label "mywin"
+    }
     stages {
         // pre-requisite stage
         stage("Init") {
