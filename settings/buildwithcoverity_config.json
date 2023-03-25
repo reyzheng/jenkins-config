@@ -1,5 +1,5 @@
 {
-    "display_name": "",
+    "display_name": "my-cov",
     "enable": true,
     "sshcredentials": "",
     "types": ["file"],
