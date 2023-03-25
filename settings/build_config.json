@@ -1,0 +1,6 @@
+{
+    "display_name": "cov-analysis",
+    "build_enabled": true,
+    "build_scripts_type": ["file"],
+    "build_scripts": ["build.bat"]
+}

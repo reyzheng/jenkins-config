@@ -16,7 +16,7 @@
     "sms_credentials": "",
     "stages": [
       "source",
-      "buildwithcoverity"
+      "build"
     ],
     "//stages": [
       "composition",
