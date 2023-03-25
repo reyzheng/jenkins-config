@@ -22,7 +22,7 @@
     "coverity_build_dir": "coverity_idir/build",
     "coverity_project": [],
     "coverity_stream": [],
-    "coverity_comptype_platform": [],
+    "coverity_comptype_platform": ["gcc"],
     "coverity_comptype_prefix": [],
     "coverity_comptype": [],
     "coverity_comptype_gcc": [],
