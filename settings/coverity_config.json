@@ -3,7 +3,7 @@
     "sshcredentials": "",
     "expressions": [],
     "buildmapping": "onetoone",
-    "coverity_scan_enabled": true,
+    "coverity_scan_enabled": false,
     "coverity_local_report": false,
     "coverity_analyze_defects": false,
     "coverity_report_path": "",
