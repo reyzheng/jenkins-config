@@ -1,8 +1,9 @@
 {
-    stages: ["composition@script", "composition@script-1"],
-    run_type: "SEQUENTIAL",
-    parallel_parameters: {
+    "stages": ["composition@script", "composition@script-1"],
+    "run_type": "SEQUENTIAL",
+    "parallel_parameters": {
         "os": ["linux", "windows"]
     },
-    parallel_excludes: [],
+    "parallel_excludes": [],
+    "node": ""
 }
