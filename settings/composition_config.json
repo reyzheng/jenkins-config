@@ -5,4 +5,5 @@
         "os": ["linux", "windows"]
     },
     parallel_excludes: [],
+    node: ""
 }
