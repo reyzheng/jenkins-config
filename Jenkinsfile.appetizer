@@ -20,5 +20,8 @@ node {
     unstash name: "pf-framework"
     def pipelineAsCode = load('rtk_stages.groovy')
     pipelineAsCode.format()
+    sh """
+        ls -al /home/reycheng/.jenkins/workspace/github/restartable-from-github@2
+    """
     load 'Jenkinsfile.restartable'
 }
