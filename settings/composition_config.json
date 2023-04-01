@@ -2,8 +2,8 @@
     "stages": ["composition@source"],
     "run_type": "SEQUENTIAL",
     "parallel_parameters": {
-        "os": ["ubuntu", "windows", "freebsd", "debian", "fedora", "mandriva", "slackware"],
-        "cpu": ["arm", "mips", "x86", "riscv", "a10", "a11", "a12"]
+        "os": ["ubuntu", "windows", "freebsd", "debian", "fedora", "mandriva", "slackware", "suse"],
+        "cpu": ["arm", "mips", "x86", "riscv", "a10", "a11", "a12", "a13", "a14", "a15", "a16"]
     },
     "parallel_excludes": [],
     "node": ""
