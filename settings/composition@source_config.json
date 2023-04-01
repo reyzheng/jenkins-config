@@ -6,7 +6,7 @@
   ],
   "filename": "source_config.groovy",
   "scm_branchs": [
-    "kernel-2.2"
+    "main"
   ],
   "scm_repo_manifest_depths": [
     1
@@ -18,7 +18,7 @@
     "git"
   ],
   "scm_urls": [
-    "https://github.com/reyzheng/multi-branch.git"
+    "https://github.com/mirror/busybox.git"
   ],
   "scm_repo_manifest_currentbranchs": [
     true
