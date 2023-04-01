@@ -11,7 +11,7 @@
     "parallel_stages": [],
     "mail_enabled": false,
     "filename": "global_config.groovy",
-    "nodes": [],
+    "nodes": ["mywin"],
     "parallel_parameters": {},
     "sms_credentials": "",
     "stages": [
