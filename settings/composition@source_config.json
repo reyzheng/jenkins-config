@@ -1,1 +1,35 @@
-s
+{
+  "display_name": "SOURCE",
+  "scm_counts": 1,
+  "scm_repo_manifest_platforms": [
+    ""
+  ],
+  "filename": "source_config.groovy",
+  "scm_branchs": [
+    "kernel-2.2"
+  ],
+  "scm_repo_manifest_depths": [
+    1
+  ],
+  "scm_repo_manifest_files": [
+    "default.xml"
+  ],
+  "scm_types": [
+    "git"
+  ],
+  "scm_urls": [
+    "https://github.com/reyzheng/multi-branch.git"
+  ],
+  "scm_repo_manifest_currentbranchs": [
+    true
+  ],
+  "scm_dsts": [
+    "source"
+  ],
+  "scm_credentials": [
+    ""
+  ],
+  "scm_repo_manifest_notags": [
+    true
+  ]
+}
