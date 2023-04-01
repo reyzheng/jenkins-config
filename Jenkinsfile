@@ -1,30 +1,39 @@
 pipeline {
     agent any
+    options { 
+        skipDefaultCheckout true
+        timestamps () 
+    }
     stages {
         // pre-requisite stage
         stage("Init") {
             steps {
-                script {
-                    dir('devsecops') {
-                        // issues of git plugin
-                        // 1. erased directory
-                        // 2. https ssl problem
-                        // and checkout to devsecops is necessary
-                        // to avoid .git already existed problem
-                        deleteDir()
-                        if (isUnix() == true) {
-                            sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b main ."
-                        }
-                        else {
-                            bat "set GIT_SSL_NO_VERIFY=true && git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b main ."
-                        }
-                    }
+                dir(".pf-config") {
+		    checkout scm
+		    stash name: "pf-config", includes: "**"
+		}
+                dir('devsecops') {
+                    // issues of git plugin
+                    // 1. erased directory
+                    // 2. https ssl problem
+                    // and checkout to devsecops is necessary
+                    // to avoid .git already existed problem
+                    deleteDir()
                     if (isUnix() == true) {
-                        sh 'cp -a devsecops/* ./'
+                        sh "GIT_SSL_NO_VERIFY=true git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b main ."
                     }
                     else {
-                        bat "xcopy devsecops\\* .\\ /E /H /Y"
+                        bat "set GIT_SSL_NO_VERIFY=true && git clone https://github.com/reyzheng/jenkins-pipeline.git --depth 1 -b main ."
                     }
+                }
+                if (isUnix() == true) {
+                    sh 'cp -a devsecops/* ./'
+                }
+                else {
+                    bat "xcopy devsecops\\* .\\ /E /H /Y"
+                }
+		unstash name: "pf-config"
+		script {
                     pipelineAsCode = load("rtk_stages.groovy")
                     pipelineAsCode.init()
                 }
