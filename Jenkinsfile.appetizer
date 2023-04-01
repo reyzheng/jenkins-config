@@ -6,7 +6,7 @@ node {
     dir(".pf-framework") {
         deleteDir()
         if (isUnix() == true) {
-            sh "GIT_SSL_NO_VERIFY=true git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
+            sh "GIT_SSL_NO_VERIFY=true git clone git@github.com:reyzheng/jenkins-pipeline.git --depth 1 -b main ."
         }
         else {
             bat "set GIT_SSL_NO_VERIFY=true && git clone https://mirror.rtkbf.com/gerrit/sdlc/jenkins-pipeline --depth 1 -b develop ."
@@ -14,11 +14,7 @@ node {
         stash name: "pf-framework", includes: "**"
     }
     unstash name: "pf-framework"
-    def jsonObj
-    dir('settings') {
-        jsonObj = readJSON file: 'global_config.json'
-    }
     def pipelineAsCode = load('rtk_stages.groovy')
-    pipelineAsCode.format(jsonObj)
+    pipelineAsCode.format()
     load 'Jenkinsfile.restartable'
 }
