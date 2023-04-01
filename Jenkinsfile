@@ -2,17 +2,17 @@ pipeline {
     agent any
     options {
         timestamps ()
-        skipDefaultCheckout true
+        //skipDefaultCheckout true
     }
     stages {
         // pre-requisite stage
         stage("init-pipelineframework") {
             steps {
                 script {
-                    dir(".pf-config") {
-                        checkout scm
-                        stash name: "pf-config", includes: "**"
-                    }
+                    //dir(".pf-config") {
+                    //    checkout scm
+                    //    stash name: "pf-config", includes: "**"
+                    //}
                     dir(".pf-framework") {
                         // issues of git plugin
                         // 1. erased directory
@@ -29,7 +29,7 @@ pipeline {
                         stash name: "pf-framework", includes: "**"
                     }
                     unstash name: "pf-framework"
-                    unstash name: "pf-config"
+                    //unstash name: "pf-config"
                     pipelineAsCode = load("rtk_stages.groovy")
                     pipelineAsCode.init()
                     pipelineAsCode.start()
