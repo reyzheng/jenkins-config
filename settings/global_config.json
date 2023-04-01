@@ -2,7 +2,7 @@
     "dagger": true,
     "sms_account": "",
     "standalone_stages": [],
-    "clean_ws": true,
+    "clean_ws": false,
     "coverity_credentials": "",
     "blackduck_credentials": "",
     "post_scripts": [
