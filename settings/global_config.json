@@ -26,7 +26,7 @@
       "file"
     ],
     "gerrit_credentials": "",
-    "preserve_source": false,
+    "preserve_source": true,
     "mail_body": "",
     "post_scripts_condition": [
       "always"
