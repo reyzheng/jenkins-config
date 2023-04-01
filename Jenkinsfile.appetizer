@@ -2,10 +2,10 @@
 node {
     // Only Jenkinsfile.appetizer available now, checkout pipeline configuration manually here
     // scripted pipeline differs from declarative pipeline which checkouts that by default
-    sh "appetizer before"
+    sh "echo appetizer-before"
     sh "pwd && ls -al"
     checkout scm
-    sh "appetizer after"
+    sh "echo appetizer-after"
     sh "pwd && ls -al"
     dir(".pf-framework") {
         deleteDir()
