@@ -29,7 +29,7 @@ pipeline {
                         stash name: "pf-framework", includes: "**"
                     }
                     unstash name: "pf-framework"
-                    //unstash name: "pf-config"
+                    unstash name: "pf-config"
                     pipelineAsCode = load("rtk_stages.groovy")
                     pipelineAsCode.init()
                     pipelineAsCode.start()
