@@ -1,5 +1,6 @@
 {
-    "stages": ["composition@source"],
+    "//stages": ["composition@source"],
+    "stages": ["composition@script"],
     "run_type": "SEQUENTIAL",
     "//parallel_parameters": {
         "os": ["ubuntu", "windows", "freebsd", "debian", "fedora", "mandriva", "slackware", "suse", "alpine", "gentoo"],
