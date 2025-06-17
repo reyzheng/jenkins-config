@@ -20,7 +20,8 @@
     ],
     "stages": [
       "composition",
-      "script-test"
+      "script-test",
+      "script-test2"
     ],
     "post_scripts_type": [
       "file"

@@ -1,5 +1,5 @@
 {
-    "display_name": "SCRIPT-test",
+    "display_name": "SCRIPT-test2",
     "enable": true,
     "types": ["inline"],
     "contents": ["echo $TESTVAR1"],
