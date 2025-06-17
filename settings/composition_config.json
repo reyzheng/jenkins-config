@@ -1,12 +1,12 @@
 {
-    "stages": ["composition@source"],
+    "stages": ["composition@source", "composition@script"],
     "run_type": "SEQUENTIAL",
     "parallel_parameters2": {
         "os": ["ubuntu", "windows", "freebsd", "debian", "fedora", "mandriva", "slackware", "suse", "alpine", "gentoo"],
         "cpu": ["arm", "mips", "x86", "riscv", "a10"]
     },
     "parallel_parameters": {
-        "os": ["ubuntu", "windows", "freebsd", "debian", "fedora", "mandriva", "slackware", "suse", "alpine", "gentoo"],
+        "os": ["ubuntu", "windows", "freebsd", "debian"],
         "cpu": ["arm"]
     },
     "parallel_excludes": [],
