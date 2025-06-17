@@ -19,7 +19,7 @@
       "script"
     ],
     "stages": [
-      "composition-multi",
+      "composition",
       "script"
     ],
     "post_scripts_type": [
