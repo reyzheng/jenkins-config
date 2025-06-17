@@ -1,5 +1,4 @@
 // put this file in the branches of the application/software repository
-@Library('pipeline-framework@profiling') _
 node {
     // Only Jenkinsfile.appetizer available now, checkout pipeline configuration manually here
     // scripted pipeline differs from declarative pipeline which checkouts that by default
